@@ -26,7 +26,7 @@ spec:
         app: xm-auth
     spec:
       containers:
-      - image: siarheishaida/xm-auth:1.0.7
+      - image: siarheishaida/xm-auth:1.0.8
         imagePullPolicy: Always
         name: xm-auth
         resources: {}
