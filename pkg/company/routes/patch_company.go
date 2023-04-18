@@ -8,7 +8,8 @@ import (
 	"github.com/s-shaida/xm-go-exercise/pkg/company/pb"
 )
 
-type CreateCompanyRequestBody struct {
+type PatchCompanyRequestBody struct {
+	Id                int64  `json:"id" binding:"required"`
 	Name              string `json:"name" binding:"required"`
 	Description       string `json:"description"`
 	AmountOfEmployees int64  `json:"amount" binding:"required"`
@@ -16,15 +17,16 @@ type CreateCompanyRequestBody struct {
 	Type              string `json:"type" binding:"required"`
 }
 
-func CreateCompany(ctx *gin.Context, c pb.CompanyServiceClient) {
-	body := CreateCompanyRequestBody{}
+func PatchCompany(ctx *gin.Context, c pb.CompanyServiceClient) {
+	body := PatchCompanyRequestBody{}
 
 	if err := ctx.BindJSON(&body); err != nil {
 		ctx.AbortWithError(http.StatusBadRequest, err)
 		return
 	}
 
-	res, err := c.CreateCompany(context.Background(), &pb.CreateCompanyRequest{
+	res, err := c.PatchCompany(context.Background(), &pb.PatchCompanyRequest{
+		Id:          body.Id,
 		Name:        body.Name,
 		Description: body.Description,
 		Amount:      body.AmountOfEmployees,
