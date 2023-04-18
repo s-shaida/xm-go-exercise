@@ -1,0 +1,75 @@
+syntax = "proto3";
+
+package company;
+
+option go_package = "./pkg/company/pb";
+
+service CompanyService {
+    rpc CreateCompany(CreateCompanyRequest) returns (CreateCompanyResponse) {}
+    rpc PatchCompany(PatchCompanyRequest) returns (PatchCompanyResponse) {}
+    rpc GetOneCompany(GetOneCompanyRequest) returns (GetOneCompanyResponse) {}
+    rpc DeleteCompany(DeleteCompanyRequest) returns (DeleteCompanyResponse) {}
+}
+
+// CreateCompany
+
+message CreateCompanyRequest {
+    string name = 1;
+    string description = 2;
+    int64 amount = 3;
+    string registered = 4;
+    string type = 5;
+}
+
+message CreateCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 3;
+}
+
+// PatchCompany
+
+message PatchCompanyRequest {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    int64 amount = 4;
+    string registered = 5;
+    string type = 6;
+  }
+  
+message PatchCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+    int64 id = 3;
+}
+
+// FindOne
+
+message GetOneCompanyData {
+    int64 id = 1;
+    string name = 2;
+    string description = 3;
+    int64 amount = 4;
+    string registered = 5;
+    string type = 6;
+}
+
+message GetOneCompanyRequest { int64 id = 1; }
+
+message GetOneCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+    GetOneCompanyData data = 3;
+}
+
+// DeleteCompany
+
+message DeleteCompanyRequest {
+    int64 id = 1;
+}
+
+message DeleteCompanyResponse {
+    int64 status = 1;
+    string error = 2;
+}
