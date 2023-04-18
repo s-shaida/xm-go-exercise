@@ -25,13 +25,22 @@ func PatchCompany(ctx *gin.Context, c pb.CompanyServiceClient) {
 		return
 	}
 
+	val, ok := pb.CompanyType_value[body.Type]
+
+	if !ok {
+		ctx.AbortWithStatus(http.StatusBadRequest)
+		return
+	}
+
+	var companyType = pb.CompanyType(val)
+
 	res, err := c.PatchCompany(context.Background(), &pb.PatchCompanyRequest{
 		Id:          body.Id,
 		Name:        body.Name,
 		Description: body.Description,
 		Amount:      body.AmountOfEmployees,
 		Registered:  body.Registered,
-		Type:        body.Type,
+		Type:        companyType,
 	})
 
 	if err != nil {
@@ -39,5 +48,5 @@ func PatchCompany(ctx *gin.Context, c pb.CompanyServiceClient) {
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, &res)
+	ctx.JSON(int(res.Status), &res)
 }

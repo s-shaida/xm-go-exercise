@@ -21,5 +21,5 @@ func DeleteCompany(ctx *gin.Context, c pb.CompanyServiceClient) {
 		return
 	}
 
-	ctx.JSON(http.StatusCreated, &res)
+	ctx.JSON(int(res.Status), &res)
 }

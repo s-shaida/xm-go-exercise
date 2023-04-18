@@ -11,14 +11,22 @@ service CompanyService {
     rpc DeleteCompany(DeleteCompanyRequest) returns (DeleteCompanyResponse) {}
 }
 
+enum CompanyType {
+    Unknown = 0;
+    Corporations = 1;
+    NonProfit = 2;
+    Cooperative = 3;
+    SoleProprietorship = 4;
+}
+
 // CreateCompany
 
 message CreateCompanyRequest {
     string name = 1;
     string description = 2;
     int64 amount = 3;
-    string registered = 4;
-    string type = 5;
+    bool registered = 4;
+    CompanyType type = 5;
 }
 
 message CreateCompanyResponse {
@@ -35,7 +43,7 @@ message PatchCompanyRequest {
     string description = 3;
     int64 amount = 4;
     string registered = 5;
-    string type = 6;
+    CompanyType type = 6;
   }
   
 message PatchCompanyResponse {
@@ -52,7 +60,7 @@ message GetOneCompanyData {
     string description = 3;
     int64 amount = 4;
     string registered = 5;
-    string type = 6;
+    CompanyType type = 6;
 }
 
 message GetOneCompanyRequest { int64 id = 1; }
