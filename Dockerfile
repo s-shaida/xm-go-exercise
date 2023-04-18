@@ -5,11 +5,6 @@ RUN mkdir /app
 
 WORKDIR /app
 
-# Copy go mod and sum files
-# COPY go.mod go.mod
-# COPY go.sum go.sum
-# COPY ./cmd/main.go ./cmd/main.go
-# COPY ./pkg/ ./pkg/
 COPY go.mod go.mod
 COPY go.sum go.sum
 
@@ -25,7 +20,7 @@ RUN CGO_ENABLED=0 go build -o main ./cmd/main.go
 ######## Start a new stage from scratch #######
 FROM alpine:latest  
 
-RUN apk --no-cache add ca-certificates
+RUN apk --no-cache add ca-certificates curl
 
 WORKDIR /app
 
