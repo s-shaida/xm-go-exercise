@@ -5,8 +5,8 @@ metadata:
     deployment.kubernetes.io/revision: "1"
   generation: 1
   labels:
-    app: xm-auth
-  name: xm-auth
+    app: xm-gateway
+  name: xm-gateway
   namespace: default
 spec:
   progressDeadlineSeconds: 600
@@ -14,7 +14,7 @@ spec:
   revisionHistoryLimit: 10
   selector:
     matchLabels:
-      app: xm-auth
+      app: xm-gateway
   strategy:
     rollingUpdate:
       maxSurge: 25%
@@ -23,12 +23,12 @@ spec:
   template:
     metadata:
       labels:
-        app: xm-auth
+        app: xm-gateway
     spec:
       containers:
-      - image: siarheishaida/xm-auth:1.0.8
+      - image: siarheishaida/xm-gateway:latest
         imagePullPolicy: Always
-        name: xm-auth
+        name: xm-gateway
         resources: {}
         terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
@@ -39,6 +39,6 @@ spec:
       terminationGracePeriodSeconds: 30
 status:
   observedGeneration: 1
+  readyReplicas: 1
   replicas: 1
-  unavailableReplicas: 1
   updatedReplicas: 1

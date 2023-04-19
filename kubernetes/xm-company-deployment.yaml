@@ -26,7 +26,7 @@ spec:
         app: xm-company
     spec:
       containers:
-      - image: siarheishaida/xm-company:1.0.3
+      - image: siarheishaida/xm-company:latest
         imagePullPolicy: IfNotPresent
         name: xm-company
         resources: {}
