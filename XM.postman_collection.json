@@ -1,0 +1,210 @@
+{
+	"info": {
+		"_postman_id": "8f79c23b-38a1-4c51-a5c0-a95c2f401cc5",
+		"name": "XM",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24743006"
+	},
+	"item": [
+		{
+			"name": "/auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@user.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:32717/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "32717",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"test@user.com\",\n    \"password\": \"12345678\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:32717/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "32717",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "/company",
+			"item": [
+				{
+					"name": "Create company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMzOTY5NjcsImlzcyI6InhtLWdvLWF1dGgtc3ZjIiwiSWQiOjIsIkVtYWlsIjoidGVzdEB1c2VyLmNvbSJ9.AZ9LVU2AD2WMPNFvUePYn8Ntqo9e9kf5_E1mOaqdFiw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"name\": \"Company 10\",\n \"description\": \"Small description\",\n \"amount\": 15,\n \"registered\": false,\n \"type\": \"NonProfit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:32717/company/",
+							"host": [
+								"localhost"
+							],
+							"port": "32717",
+							"path": [
+								"company",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get company by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMzOTY5NjcsImlzcyI6InhtLWdvLWF1dGgtc3ZjIiwiSWQiOjIsIkVtYWlsIjoidGVzdEB1c2VyLmNvbSJ9.AZ9LVU2AD2WMPNFvUePYn8Ntqo9e9kf5_E1mOaqdFiw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:32717/company/26",
+							"host": [
+								"localhost"
+							],
+							"port": "32717",
+							"path": [
+								"company",
+								"26"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Patch company",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMzOTY5NjcsImlzcyI6InhtLWdvLWF1dGgtc3ZjIiwiSWQiOjIsIkVtYWlsIjoidGVzdEB1c2VyLmNvbSJ9.AZ9LVU2AD2WMPNFvUePYn8Ntqo9e9kf5_E1mOaqdFiw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n \"id\": 26,\n \"name\": \"Company 10\",\n \"description\": \"Small description\",\n \"amount\": 10,\n \"registered\": false,\n \"type\": \"NonProfit\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:32717/company/",
+							"host": [
+								"localhost"
+							],
+							"port": "32717",
+							"path": [
+								"company",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete company by id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMzOTY5NjcsImlzcyI6InhtLWdvLWF1dGgtc3ZjIiwiSWQiOjIsIkVtYWlsIjoidGVzdEB1c2VyLmNvbSJ9.AZ9LVU2AD2WMPNFvUePYn8Ntqo9e9kf5_E1mOaqdFiw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:32717/company/26",
+							"host": [
+								"localhost"
+							],
+							"port": "32717",
+							"path": [
+								"company",
+								"26"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

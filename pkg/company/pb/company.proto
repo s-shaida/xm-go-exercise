@@ -42,7 +42,7 @@ message PatchCompanyRequest {
     string name = 2;
     string description = 3;
     int64 amount = 4;
-    string registered = 5;
+    bool registered = 5;
     CompanyType type = 6;
   }
   

@@ -13,7 +13,7 @@ type PatchCompanyRequestBody struct {
 	Name              string `json:"name" binding:"required"`
 	Description       string `json:"description"`
 	AmountOfEmployees int64  `json:"amount" binding:"required"`
-	Registered        string `json:"registered" binding:"required"`
+	Registered        *bool  `json:"registered" binding:"required"`
 	Type              string `json:"type" binding:"required"`
 }
 
@@ -39,7 +39,7 @@ func PatchCompany(ctx *gin.Context, c pb.CompanyServiceClient) {
 		Name:        body.Name,
 		Description: body.Description,
 		Amount:      body.AmountOfEmployees,
-		Registered:  body.Registered,
+		Registered:  *body.Registered,
 		Type:        companyType,
 	})
 

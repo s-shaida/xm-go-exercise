@@ -18,8 +18,8 @@ func RegisterRoutes(r *gin.Engine, c *config.Config, authSvc *auth.ServiceClient
 	routes.GET("/:id", svc.GetOneCompany)
 	routes.Use(a.AuthRequired)
 	routes.POST("/", svc.CreateCompany)
-	routes.POST("/update", svc.PatchCompany)
-	routes.GET("/delete/:id", svc.DeleteCompany)
+	routes.PATCH("/", svc.PatchCompany)
+	routes.DELETE("/:id", svc.DeleteCompany)
 }
 
 func (svc *ServiceClient) GetOneCompany(ctx *gin.Context) {
