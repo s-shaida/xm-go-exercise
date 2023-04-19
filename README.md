@@ -5,6 +5,8 @@
 2. Execute
 ```shell
 make kubernetes-start
+
+# if you need to create databases, then run
 make kubernetes-init-databases
 ```
 3. For work with API you can use postman collection or
