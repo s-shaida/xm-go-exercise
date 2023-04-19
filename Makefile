@@ -4,8 +4,11 @@ proto:
 server:
 	go run ./cmd/main.go
 
+kubernetes-init:
+	kubectl apply -f ./kubernetes/postgres-jobs.yaml
+
 kubernetes-start:
-	kubectl create -f ./kubernetes/postgres-secret.yaml
+	kubectl apply -f ./kubernetes/postgres-config-map.yaml
 	kubectl apply -f ./kubernetes/postgres-db-pv.yaml
 	kubectl apply -f ./kubernetes/postgres-db-pvc.yaml
 	kubectl apply -f ./kubernetes/postgres-db-deployment.yaml
@@ -18,7 +21,7 @@ kubernetes-start:
 	kubectl apply -f ./kubernetes/xm-company-srv.yaml
 
 kubernetes-stop:
-	kubectl delete -f ./kubernetes/postgres-secret.yaml
+	kubectl delete -f ./kubernetes/postgres-config-map.yaml
 	# kubectl delete -f ./kubernetes/postgres-db-pv.yaml
 	# kubectl delete -f ./kubernetes/postgres-db-pvc.yaml
 	kubectl delete -f ./kubernetes/postgres-db-deployment.yaml

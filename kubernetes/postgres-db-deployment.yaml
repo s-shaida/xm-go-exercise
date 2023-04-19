@@ -21,7 +21,7 @@ spec:
           name: postgres
           imagePullPolicy: "IfNotPresent"
           envFrom:                                # Get the environmental variables from a secret file whose name is "postgres-secret" 
-            - secretRef:
+            - configMapRef:
                 name: postgres-secret
             
           ports:
