@@ -7,7 +7,7 @@ spec:
     spec:
       containers:
       - name: secondb
-        image: bitnami/postgresql:latest
+        image: postgres/postgresql:latest
         command: ["createdb"]
         args: ["-h","xm-postgres", "-U", "xm", "auth_svc" ]
         env:
@@ -25,7 +25,7 @@ spec:
     spec:
       containers:
       - name: secondb
-        image: bitnami/postgresql:latest
+        image: postgres/postgresql:latest
         command: ["createdb"]
         args: ["-h","xm-postgres", "-U", "xm", "company_svc" ]
         env:

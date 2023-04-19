@@ -4,7 +4,7 @@ proto:
 server:
 	go run ./cmd/main.go
 
-kubernetes-init:
+kubernetes-init-databases:
 	kubectl apply -f ./kubernetes/postgres-jobs.yaml
 
 kubernetes-start:
