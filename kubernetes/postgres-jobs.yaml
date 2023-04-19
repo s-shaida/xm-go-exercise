@@ -6,7 +6,7 @@ spec:
   template:
     spec:
       containers:
-      - name: secondb
+      - name: firstdb
         image: bitnami/postgresql:latest
         command: ["createdb"]
         args: ["-h","xm-postgres", "-U", "xm", "auth_svc" ]
